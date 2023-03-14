@@ -1,0 +1,38 @@
+#Stein's Improvement for Euclidean GCD Algorithm 
+
+def computeGCD(n1, n2):
+    
+    if (n1<0 or n2<0):
+        print("Error. Numbers must be positive integers!")
+    
+    c = 0
+    temp = 0
+    
+    while (n1%2==0 and n2%2==0):
+        n1=n1/2
+        n2=n2/2
+        c+=1
+        
+    if (n2%2==0):
+        temp  = n1
+        n1 = n2
+        n2 = temp
+    
+    
+    while (n1!=0):
+        
+        while(n1%2==0):
+            n1/=2
+            
+        if (n2 > n1):
+            temp = n1
+            n1=n2
+            n2=temp
+        
+        n1 = (n1-n2)/2
+        
+    gcd = (2**c)*n2
+    
+    print("GCD: ", gcd)
+    
+    return
